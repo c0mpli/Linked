@@ -33,7 +33,6 @@ app.post('/', async (req, res) => {
 
 app.post('/create',async (req, res) => {
     const {user,emoji,status} = req.body;
-    //check if user already exists
     const data = await Data.findOne({user});
     if(data){
         res.status(400).json({message:"User already exists. Try a different username."});
